@@ -457,3 +457,23 @@ AI Chat Assistant
 If so, buy the author a cup of coffee ☺
 
 ![](https://static.oschina.net/uploads/img/201903/08155608_0EFX.png)
+
+
+## Disclaimer
+
+JeecgBoot is released under the [Apache License 2.0](./LICENSE). Please read the following disclaimer carefully before using this software:
+
+1. **Provided "AS IS"**  
+   This software and its related documentation are provided "AS IS", without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement.
+
+2. **Use at Your Own Risk**  
+   Users shall evaluate whether this software meets their own business scenarios, and shall bear all risks arising from downloading, installing, using, modifying, or further developing this software, including but not limited to data loss, business interruption, loss of revenue, or any other form of damage.
+
+3. **Limitation of Liability**  
+   To the maximum extent permitted by applicable law, the authors, contributors, and copyright holders of JeecgBoot shall not be liable for any direct, indirect, incidental, special, punitive, or consequential damages suffered by users or any third party arising from the use of this software.
+
+4. **Community Request**  
+   While the Apache License 2.0 grants full rights to use, modify, and redistribute this software, we kindly request that derivative works refrain from directly replicating, misrepresenting themselves as official JeecgBoot releases, or using names/branding highly similar to JeecgBoot. This is a non-binding appeal for healthy collaboration within the open-source community, not a restrictive condition.
+
+By downloading, copying, installing, or otherwise using this software, you are deemed to have read, understood, and agreed to the foregoing disclaimer.
+
