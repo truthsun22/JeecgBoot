@@ -1,6 +1,7 @@
 package org.jeecg.common.license;
 
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
