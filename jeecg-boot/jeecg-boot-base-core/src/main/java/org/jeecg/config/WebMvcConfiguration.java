@@ -25,6 +25,9 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import org.jeecg.common.license.AuthInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -51,6 +54,9 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     JeecgBaseConfig jeecgBaseConfig;
     @Value("${spring.resource.static-locations:}")
     private String staticLocations;
+
+    @Autowired(required = false)
+    private AuthInterceptor authInterceptor;
 
     @Autowired(required = false)
     private PrometheusMeterRegistry prometheusMeterRegistry;
@@ -148,13 +154,25 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         return () -> meterRegistryPostProcessor.postProcessAfterInitialization(prometheusMeterRegistry, "");
     }
 
-//    /**
-//     * 注册拦截器【拦截器拦截参数，自动切换数据源——后期实现多租户切换数据源功能】
-//     * @param registry
-//     */
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(new DynamicDatasourceInterceptor()).addPathPatterns("/test/dynamic/**");
-//    }
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        if (authInterceptor != null) {
+            registry.addInterceptor(authInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns(
+                    "/sys/login",
+                    "/sys/randomImage/**",
+                    "/login.html",
+                    "/favicon.ico",
+                    "/error",
+                    "/static/**",
+                    "/assets/**",
+                    "/css/**",
+                    "/js/**",
+                    "/images/**",
+                    "/fonts/**"
+                );
+        }
+    }
 
 }
