@@ -59,8 +59,6 @@
 		<dynamic-datasource-spring-boot-starter.version>4.1.3</dynamic-datasource-spring-boot-starter.version>
 		<druid.version>1.2.22</druid.version>
 
-		<!-- 积木报表-->
-		<jimureport-spring-boot-starter.version>1.9.1</jimureport-spring-boot-starter.version>
 		<commons-io.version>2.11.0</commons-io.version>
 		<commons.version>2.6</commons.version>
 		<aliyun-java-sdk-dysmsapi.version>2.1.0</aliyun-java-sdk-dysmsapi.version>
@@ -83,7 +81,6 @@
 
 	<modules>
         <module>jeecg-boot-base-core</module>
-        <module>jeecg-module-demo</module>
         <module>jeecg-module-system</module>
     </modules>
 
@@ -387,33 +384,7 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			<!-- 积木报表-->
-			<dependency>
-				<groupId>org.jeecgframework.jimureport</groupId>
-				<artifactId>jimureport-spring-boot-starter</artifactId>
-				<version>${jimureport-spring-boot-starter.version}</version>
-				<exclusions>
-					<exclusion>
-						<artifactId>autopoi-web</artifactId>
-						<groupId>org.jeecgframework</groupId>
-					</exclusion>
-					<exclusion>
-						<artifactId>druid</artifactId>
-						<groupId>com.alibaba</groupId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<!-- 积木BI-->
-			<dependency>
-				<groupId>org.jeecgframework.jimureport</groupId>
-				<artifactId>jimubi-spring-boot-starter</artifactId>
-				<version>${jimureport-spring-boot-starter.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.jeecgframework.jimureport</groupId>
-				<artifactId>jimureport-nosql-starter</artifactId>
-				<version>1.6.0</version>
-			</dependency>
+
 			<!-- chatgpt -->
 			<dependency>
 				<groupId>org.jeecgframework.boot</groupId>

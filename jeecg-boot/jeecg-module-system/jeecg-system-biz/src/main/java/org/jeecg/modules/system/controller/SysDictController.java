@@ -497,9 +497,7 @@ public class SysDictController {
 		redisUtil.removeAll(CacheConstant.SYS_DICT_TABLE_BY_KEYS_CACHE);
 		redisUtil.removeAll(CacheConstant.SYS_DEPARTS_CACHE);
 		redisUtil.removeAll(CacheConstant.SYS_DEPART_IDS_CACHE);
-		redisUtil.removeAll("jmreport:cache:dict");
-		redisUtil.removeAll("jmreport:cache:dictTable");
-		//update-end-author:liusq date:20230404 for:  [issue/4358]springCache中的清除缓存的操作使用了“keys”
+		//update-end-author:liusq date:20230404 for:  [issue/4358]springCache中的清除缓存的操作使用了"keys"[issue/4358]springCache中的清除缓存的操作使用了“keys”
 		
 		//update-begin---author:scott ---date:2024-06-18  for：【TV360X-1320】分配权限必须退出重新登录才生效，造成很多用户困扰---
 		// 清除当前用户的授权缓存信息
