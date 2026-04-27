@@ -5,6 +5,7 @@ import cn.hutool.crypto.asymmetric.KeyType;
 import cn.hutool.crypto.asymmetric.RSA;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.binary.Base64;
 import org.jeecg.common.util.oConvertUtils;
 import org.springframework.stereotype.Service;
 
@@ -144,7 +145,7 @@ public class AuthService {
     private void saveAuth() {
         try {
             String json = JSON.toJSONString(currentAuth);
-            String encoded = oConvertUtils.encodeBase64(json.getBytes(StandardCharsets.UTF_8));
+            String encoded = Base64.encodeBase64String(json.getBytes(StandardCharsets.UTF_8));
             
             File authDir = getAuthDir();
             File authFile = new File(authDir, AUTH_FILE);
@@ -173,7 +174,7 @@ public class AuthService {
             }
             
             if (content != null) {
-                String decoded = new String(oConvertUtils.decodeBase64(content), StandardCharsets.UTF_8);
+                String decoded = new String(Base64.decodeBase64(content), StandardCharsets.UTF_8);
                 currentAuth = JSON.parseObject(decoded, AuthInfo.class);
                 log.info("授权信息加载成功");
             }
