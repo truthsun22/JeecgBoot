@@ -25,7 +25,7 @@ spring:
 #    lazy-initialization: true
   flyway:
     # 是否启用flyway
-    enabled: false
+    enabled: true
     # 迁移sql脚本存放路径
     locations: classpath:flyway/sql/mysql
     # 是否关闭要清除已有库下的表功能,生产环境必须为true,否则会删库，非常重要！！！
@@ -110,7 +110,6 @@ spring:
   autoconfigure:
     exclude:
       - com.alibaba.druid.spring.boot3.autoconfigure.DruidDataSourceAutoConfigure
-      - org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration
   datasource:
     druid:
       stat-view-servlet:
