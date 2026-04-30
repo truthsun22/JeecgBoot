@@ -27,6 +27,12 @@ public class RequestIdAspect {
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         HttpServletRequest request = SpringContextUtils.getHttpServletRequest();
         
+        String existingRequestId = RequestIdContext.getRequestId();
+        
+        if (existingRequestId != null && !existingRequestId.isEmpty()) {
+            return joinPoint.proceed();
+        }
+        
         String requestId = request.getHeader(RequestIdContext.getRequestIdHeader());
         
         if (requestId == null || requestId.isEmpty()) {
