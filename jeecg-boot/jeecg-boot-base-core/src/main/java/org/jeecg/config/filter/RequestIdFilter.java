@@ -34,7 +34,7 @@ public class RequestIdFilter implements Filter {
         jakarta.servlet.http.HttpServletResponse response = (jakarta.servlet.http.HttpServletResponse) servletResponse;
         response.setHeader(RequestIdContext.getRequestIdHeader(), requestId);
         
-        log.debug("RequestIdFilter - requestId: {}, uri: {}", requestId, request.getRequestURI());
+        log.info("RequestIdFilter - requestId: {}, uri: {}, method: {}", requestId, request.getRequestURI(), request.getMethod());
         
         try {
             filterChain.doFilter(request, response);
